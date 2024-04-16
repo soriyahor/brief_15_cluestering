@@ -18,6 +18,9 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az container delete --name soriyab15fastfront --resource-group grsoriyab15 --yes
+          pwd
+          ls
           cd ..
+          pwd
           ls
           az container create --resource-group grsoriyab15 --file deploy-aci.yaml
