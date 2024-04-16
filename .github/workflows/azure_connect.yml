@@ -14,6 +14,15 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v1
+
+    # Match and replace by Regex in the 'deploy.toml' file
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@v2
+      with:
+        find: "password.registry"
+        replace: ${{ secrets.AZURE_REGISTRY_SECRET }}
+        regex: true
+        include: 'deploy-aci.yaml'
     
     - name: Azure CLI script
       uses: azure/CLI@v1
@@ -21,4 +30,4 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az container delete --name soriyab15fastfront --resource-group grsoriyab15 --yes
-          az container create --resource-group grsoriyab15 --file deploy-aci.yaml --registry-username soriyab15 --registry-password edC42Xjd/1JKL4O0dn+Xj7IF8n2o9kCbrse0ySPuZh+ACRDO0lA0
+          az container create --resource-group grsoriyab15 --file deploy-aci.yaml

@@ -2,6 +2,10 @@ apiVersion: 2019-12-01
 location: francecentral
 name: soriyab15fastfront
 properties:
+  imageRegistryCredentials:
+    - server: soriyab15.azurecr.io
+      username: soriyab15
+      password: password.registry
   containers:
     - name: backend
       properties:
