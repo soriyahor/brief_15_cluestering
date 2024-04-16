@@ -1,23 +1,20 @@
-name: Run Azure Login with OpenID Connect
 on: [push]
 
-permissions:
-      id-token: write
-      contents: read
-      
-jobs: 
+name: Run Azure Login With a Service Principal Secret
+
+jobs:
+
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Azure login'
-      uses: azure/login@v1
+    
+    - uses: azure/login@v2
       with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-  
-    - name: 'Run Azure CLI commands'
-      run: |
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Azure CLI script
+      uses: azure/CLI@v1
+      with:
+        azcliversion: latest
+        inlineScript: |
           az account show
-          az group list
-          pwd
