@@ -21,4 +21,4 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az container delete --name soriyab15fastfront --resource-group grsoriyab15 --yes
-          az container create --resource-group grsoriyab15 --file $GITHUB_WORKSPACE/deploy-aci.yaml
+          az container create --resource-group grsoriyab15 --file deploy-aci.yaml --registry-username soriyab15 --registry-password edC42Xjd/1JKL4O0dn+Xj7IF8n2o9kCbrse0ySPuZh+ACRDO0lA0
