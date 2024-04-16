@@ -1,0 +1,38 @@
+apiVersion: 2019-12-01
+location: francecentral
+name: soriyab15fastfront
+properties:
+  imageRegistryCredentials:
+    - server: soriyab15.azurecr.io
+      username: soriyab15
+      password: ${{ secrets.AZURE_REGISTRY_SECRET }}
+  containers:
+    - name: backend
+      properties:
+        image: soriyab15.azurecr.io/backb15:latest
+        ports:
+          - port: 8001
+        resources:
+          requests:
+            cpu: 1
+            memoryInGb: 1.5
+    - name: frontend
+      properties:
+        image: soriyab15.azurecr.io/frontb15:latest
+        ports:
+          - port: 8000
+        resources:
+          requests:
+            cpu: 1
+            memoryInGb: 1.5
+  osType: Linux
+  ipAddress:
+    type: Public
+    dnsNameLabel: soriyab15-fastfront
+    ports:
+      - protocol: tcp
+        port: 8001
+      - protocol: tcp
+        port: 8000
+tags: {tag: soriyab15}
+type: Microsoft.ContainerInstance/containerGroups

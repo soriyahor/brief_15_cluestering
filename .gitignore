@@ -15,4 +15,4 @@ data/
 **/*.png
 
 # deploy azure
-deploy-aci.yaml
+# deploy-aci.yaml
