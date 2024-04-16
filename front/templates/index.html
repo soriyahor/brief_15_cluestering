@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title></title>
+
+</head>
+<body>
+
+    <h1>Get a Prediction</h1>
+
+        <h2>Choose your model:</h2>
+        <form>
+            <label for="name">Name model</label>
+            <select id="modelDropdown">
+                <option value="Kmeans">K-means</option>
+                <option value="agglo">Agglomeration</option>
+            </select>
+            <br><br>
+            <label for="n_clusters">Number of cluster</label>
+            <input type="number" name="n_clusters" id="n_clusters" min="0" required title="Please enter the number of clusters">
+            <br><br>
+            <button type="submit" id="btn-submit">Submit</button>
+        </form>
+        <div id="result"></div>
+        <div id="result_plot"></div>
+    
+    <script src="../static/main.js"></script>
+</body>
+</html>
