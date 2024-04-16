@@ -11,6 +11,9 @@ jobs:
     - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Checkout
+      uses: actions/checkout@v1
     
     - name: Azure CLI script
       uses: azure/CLI@v1
@@ -18,8 +21,4 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az container delete --name soriyab15fastfront --resource-group grsoriyab15 --yes
-          pwd
-          cd ..
-          pwd
-          ls -al
-          az container create --resource-group grsoriyab15 --file ./deploy-aci.yaml
+          az container create --resource-group grsoriyab15 --file $GITHUB_WORKSPACE/deploy-aci.yaml
