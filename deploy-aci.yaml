@@ -5,7 +5,7 @@ properties:
   imageRegistryCredentials:
     - server: soriyab15.azurecr.io
       username: soriyab15
-      password: ${{ secrets.AZURE_REGISTRY_SECRET }}
+      password: edC42Xjd/1JKL4O0dn+Xj7IF8n2o9kCbrse0ySPuZh+ACRDO0lA0
   containers:
     - name: backend
       properties:
