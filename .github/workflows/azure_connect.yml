@@ -15,7 +15,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    # Match and replace by Regex in the 'deploy.toml' file
+    - name: azure acr login
+      run: |
+        az acr login --name soriyab15
+
+    - name: build and push images
+      run: |
+        docker build -t b15_clustering_backend -f Dockerfile.back .
+        docker build -t b15_clustering_frontend -f Dockerfile.front .
+        docker tag b16_ajax_clustering_frontend:latest soriyab15.azurecr.io/frontb15:latest
+        docker tag b16_ajax_clustering_backend:latest soriyab15.azurecr.io/backb15:latest
+        docker push soriyab15.azurecr.io/backb15:latest
+        docker push soriyab15.azurecr.io/frontb15:latest
+    
     - name: Find and Replace
       uses: jacobtomlinson/gha-find-replace@v2
       with:
