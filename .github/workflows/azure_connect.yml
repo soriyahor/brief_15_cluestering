@@ -23,8 +23,8 @@ jobs:
       run: |
         docker build -t b15_clustering_backend -f Dockerfile.back .
         docker build -t b15_clustering_frontend -f Dockerfile.front .
-        docker tag b16_ajax_clustering_frontend:latest soriyab15.azurecr.io/frontb15:latest
-        docker tag b16_ajax_clustering_backend:latest soriyab15.azurecr.io/backb15:latest
+        docker tag b15_clustering_frontend:latest soriyab15.azurecr.io/frontb15:latest
+        docker tag b15_clustering_backend:latest soriyab15.azurecr.io/backb15:latest
         docker push soriyab15.azurecr.io/backb15:latest
         docker push soriyab15.azurecr.io/frontb15:latest
     
