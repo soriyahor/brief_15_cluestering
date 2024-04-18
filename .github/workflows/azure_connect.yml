@@ -4,6 +4,16 @@ name: Run Azure Login With a Service Principal Secret
 
 jobs:
 
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v1
+
+    - name: Test with pytest
+      run: |
+        cd back && pytest
+
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
